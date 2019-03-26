@@ -56,7 +56,7 @@ public class Process {
                         matchStr.add(str);
                     }
                     System.out.println("old-------" + formula);
-                    Collections.sort(matchStr, Collections.reverseOrder());
+                    sort(matchStr, false);
                     for (String str : matchStr) {
                         int i = Integer.parseInt(str.substring(1));
                         String newStr = str.charAt(0) + String.valueOf(++i);
@@ -73,5 +73,15 @@ public class Process {
         BufferedWriter bfw = new BufferedWriter(new FileWriter(new File(outPath)));
         bfw.write(str);
         bfw.close();
+    }
+
+    public static void sort(List<String> list, boolean sort){
+        if(sort){
+            // 升序
+            Collections.sort(list);
+        }else{
+            // 降序
+            Collections.sort(list, Collections.reverseOrder());
+        }
     }
 }
